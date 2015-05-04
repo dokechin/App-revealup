@@ -1,3 +1,6 @@
 [submodule "share/revealjs"]
 	path = share/revealjs
 	url = git://github.com/hakimel/reveal.js.git
+[submodule "share/notes-speaker"]
+	path = share/notes-speaker
+	url = https://github.com/dokechin/notes-speaker.git
