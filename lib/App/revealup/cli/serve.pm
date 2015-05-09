@@ -14,6 +14,8 @@ has 'theme';
 has 'transition';
 has 'width';
 has 'height';
+has 'voice';
+has 'variant';
 has 'theme_path';
 
 sub run {
@@ -26,6 +28,8 @@ sub run {
         'transition=s' => \$opt->{transition},
         'width=i' => \$opt->{width},
         'height=i' => \$opt->{height},
+        'voice=s' => \$opt->{voice},
+        'variant=s' => \$opt->{variant},
         '_dry-run' => \$opt->{dry_run},
     );
 
@@ -40,6 +44,8 @@ sub run {
         transition => $self->transition || '',
         width => $self->width || 0,
         height => $self->height || 0,
+        voice => $self->voice || 'en/en-us',
+        variant => $self->variant || 'm1',
     );
     my $html = $builder->build_html();
     if( !$html ) {

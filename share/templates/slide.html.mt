@@ -1,4 +1,4 @@
-? my ($filename, $theme, $transition, $size) = @_;
+? my ($filename, $theme, $transition, $size, $voice, $variant) = @_;
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,6 +41,8 @@
       Reveal.initialize({
         width: <?= $size->{width} ?>,
         height: <?= $size->{height} ?>,
+        voice: "<?= $voice ?>",
+        variant: "<?= $variant ?>",
         controls: true,
         progress: true,
         history: true,

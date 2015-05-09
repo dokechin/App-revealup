@@ -9,6 +9,8 @@ has 'theme_path';
 has 'transition' => 'default';
 has 'width' => 960;
 has 'height' => 700;
+has 'voice' => 'en/en-us';
+has 'variant' => 'm1';
 has 'filename';
 
 sub build_html {
@@ -42,7 +44,9 @@ sub render {
         $filename,
         $self->theme_path,
         $self->transition,
-        { width => $self->width, height => $self->height },
+        { width => $self->width, height => $self->height},
+        $self->voice,
+        $self->variant,
     )->as_string();
     return $html;
 }
