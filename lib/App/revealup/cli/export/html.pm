@@ -10,6 +10,8 @@ has 'theme';
 has 'transition';
 has 'width';
 has 'height';
+has 'voice';
+has 'variant';
 has 'output' => 'original.html';
 
 sub run {
@@ -22,6 +24,8 @@ sub run {
         'width=i' => \$opt->{width},
         'height=i' => \$opt->{height},
         'output=s' => \$opt->{output},
+        'voice=s' => \$opt->{voice},
+        'variant=s' => \$opt->{variant},
     );
     for my $key (keys %$opt) {
         $self->$key( $opt->{$key} );
@@ -42,6 +46,8 @@ sub run {
         transition => $self->transition || '',
         width => $self->width || 0,
         height => $self->height || 0,
+        voice => $self->voice || 'en/en-us',
+        variant => $self->variant || 'm1',
     );
     
     my $html = $builder->build_html();
@@ -51,6 +57,7 @@ sub run {
     my $reveal_path = App::revealup::util::share_path([qw/share revealjs/]);
     App::revealup::util::info("Copy command for the revealjs directory is:");
     App::revealup::util::info("cp -r @{[$reveal_path->absolute]} ./revealjs");
+    App::revealup::util::info("cp -r @{[$reveal_path->absolute]} ./notes-speaker");
 }
 
 1;
